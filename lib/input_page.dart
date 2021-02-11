@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+const buttomContainerHeight = 80.0;
+const bottomContainerColor = Color(0xFFEB1555);
+const activeCardColor = Color(0xFF1D1E33);
+
 class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
@@ -9,7 +13,6 @@ class _InputPageState extends State<InputPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Colors.green,
       appBar: AppBar(
         centerTitle: true,
         title: Text('BMI CALCULATOR'),
@@ -21,28 +24,34 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: [
                   MyCard(
-                    colour: Color(0xFF1D1E33),
+                    colour: activeCardColor,
                   ),
                   MyCard(
-                    colour: Color(0xFF1D1E33),
+                    colour: activeCardColor,
                   ),
                 ],
               ),
             ),
             MyCard(
-              colour: Color(0xFF1D1E33),
+              colour: activeCardColor,
             ),
             Expanded(
               child: Row(
                 children: [
                   MyCard(
-                    colour: Color(0xFF1D1E33),
+                    colour: activeCardColor,
                   ),
                   MyCard(
-                    colour: Color(0xFF1D1E33),
+                    colour: activeCardColor,
                   ),
                 ],
               ),
+            ),
+            Container(
+              margin: EdgeInsets.only(top: 15.0),
+              color: bottomContainerColor,
+              width: double.infinity,
+              height: buttomContainerHeight,
             ),
           ],
         ),
@@ -52,8 +61,8 @@ class _InputPageState extends State<InputPage> {
 }
 
 class MyCard extends StatelessWidget {
-  Color colour;
-  MyCard({this.colour});
+  final Color colour;
+  MyCard({@required this.colour});
   @override
   Widget build(BuildContext context) {
     return Expanded(
