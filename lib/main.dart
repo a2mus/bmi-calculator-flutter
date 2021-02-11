@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'input_page.dart';
 
 const scaffoldBackgroundColor = Color(0xFF0A0E21);
@@ -12,10 +11,12 @@ class BMICalculator extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
-          primaryColor: primaryColor,
-          scaffoldBackgroundColor: scaffoldBackgroundColor,
-          textTheme: TextTheme(
-              bodyText2: TextStyle(color: Colors.white, fontSize: 25))),
+        primaryColor: primaryColor,
+        scaffoldBackgroundColor: scaffoldBackgroundColor,
+        textTheme: TextTheme(
+          bodyText2: TextStyle(color: Colors.white, fontSize: 25),
+        ),
+      ),
       home: InputPage(),
     );
   }
