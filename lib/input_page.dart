@@ -32,34 +32,44 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: Row(
                 children: [
-                  MyCard(
-                    colour: activeCardColor,
-                    childCard: IconContent(
-                      icon: femaleIcon,
-                      textIcon: textFemale,
+                  Expanded(
+                    child: MyCard(
+                      colour: activeCardColor,
+                      childCard: IconContent(
+                        icon: femaleIcon,
+                        textIcon: textFemale,
+                      ),
                     ),
                   ),
-                  MyCard(
-                    colour: activeCardColor,
-                    childCard: IconContent(
-                      icon: maleIcon,
-                      textIcon: textMale,
+                  Expanded(
+                    child: MyCard(
+                      colour: activeCardColor,
+                      childCard: IconContent(
+                        icon: maleIcon,
+                        textIcon: textMale,
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-            MyCard(
-              colour: activeCardColor,
+            Expanded(
+              child: MyCard(
+                colour: activeCardColor,
+              ),
             ),
             Expanded(
               child: Row(
                 children: [
-                  MyCard(
-                    colour: activeCardColor,
+                  Expanded(
+                    child: MyCard(
+                      colour: activeCardColor,
+                    ),
                   ),
-                  MyCard(
-                    colour: activeCardColor,
+                  Expanded(
+                    child: MyCard(
+                      colour: activeCardColor,
+                    ),
                   ),
                 ],
               ),

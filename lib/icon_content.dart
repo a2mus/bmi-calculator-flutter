@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 const cardFontColor = Color(0xFF8D8E98);
 const textIconStyle = TextStyle(
-    color: cardFontColor, fontSize: 36.0, fontWeight: FontWeight.bold);
+    color: cardFontColor, fontSize: 30.0, fontWeight: FontWeight.bold);
 
 class IconContent extends StatelessWidget {
   final IconData icon;
@@ -17,7 +17,7 @@ class IconContent extends StatelessWidget {
       children: [
         Icon(
           icon,
-          size: 80.0,
+          size: 70.0,
         ),
         SizedBox(
           height: 10.0,
