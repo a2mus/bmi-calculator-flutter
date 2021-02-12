@@ -7,6 +7,7 @@ import 'my_card.dart';
 const buttomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFEB1555);
 const activeCardColor = Color(0xFF1D1E33);
+const inactiveCardColor = Color(0xFF111238);
 
 const maleIcon = FontAwesomeIcons.mars;
 const textMale = 'ذكـر';
@@ -19,6 +20,29 @@ class InputPage extends StatefulWidget {
 }
 
 class _InputPageState extends State<InputPage> {
+  Color femaleCardColor = inactiveCardColor;
+  Color maleCardColor = inactiveCardColor;
+
+  void updateColor(int gender) {
+    if (gender == 2) {
+      if (femaleCardColor == inactiveCardColor) {
+        femaleCardColor = activeCardColor;
+        maleCardColor = inactiveCardColor;
+      } else {
+        femaleCardColor = inactiveCardColor;
+      }
+    }
+
+    if (gender == 1) {
+      if (maleCardColor == inactiveCardColor) {
+        maleCardColor = activeCardColor;
+        femaleCardColor = inactiveCardColor;
+      } else {
+        maleCardColor = inactiveCardColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,20 +57,34 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: MyCard(
-                      colour: activeCardColor,
-                      childCard: IconContent(
-                        icon: femaleIcon,
-                        textIcon: textFemale,
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          updateColor(2);
+                        });
+                      },
+                      child: MyCard(
+                        colour: femaleCardColor,
+                        childCard: IconContent(
+                          icon: femaleIcon,
+                          textIcon: textFemale,
+                        ),
                       ),
                     ),
                   ),
                   Expanded(
-                    child: MyCard(
-                      colour: activeCardColor,
-                      childCard: IconContent(
-                        icon: maleIcon,
-                        textIcon: textMale,
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          updateColor(1);
+                        });
+                      },
+                      child: MyCard(
+                        colour: maleCardColor,
+                        childCard: IconContent(
+                          icon: maleIcon,
+                          textIcon: textMale,
+                        ),
                       ),
                     ),
                   ),
