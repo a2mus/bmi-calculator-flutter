@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'icon_content.dart';
+import 'my_card.dart';
 
 const buttomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFEB1555);
 const activeCardColor = Color(0xFF1D1E33);
+
+const maleIcon = FontAwesomeIcons.mars;
+const textMale = 'ذكـر';
+const femaleIcon = FontAwesomeIcons.venus;
+const textFemale = 'أنثى';
 
 class InputPage extends StatefulWidget {
   @override
@@ -15,7 +24,7 @@ class _InputPageState extends State<InputPage> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('BMI CALCULATOR'),
+        title: Text('حاسبة مؤشر كتلة الجسم'),
       ),
       body: Container(
         child: Column(
@@ -25,9 +34,17 @@ class _InputPageState extends State<InputPage> {
                 children: [
                   MyCard(
                     colour: activeCardColor,
+                    childCard: IconContent(
+                      icon: femaleIcon,
+                      textIcon: textFemale,
+                    ),
                   ),
                   MyCard(
                     colour: activeCardColor,
+                    childCard: IconContent(
+                      icon: maleIcon,
+                      textIcon: textMale,
+                    ),
                   ),
                 ],
               ),
@@ -54,23 +71,6 @@ class _InputPageState extends State<InputPage> {
               height: buttomContainerHeight,
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class MyCard extends StatelessWidget {
-  final Color colour;
-  MyCard({@required this.colour});
-  @override
-  Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        margin: EdgeInsets.all(15),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(15.0),
-          color: colour,
         ),
       ),
     );
