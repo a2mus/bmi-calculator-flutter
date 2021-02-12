@@ -7,7 +7,6 @@ import 'my_card.dart';
 const buttomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFEB1555);
 const activeCardColor = Color(0xFF1D1E33);
-
 const maleIcon = FontAwesomeIcons.mars;
 const textMale = 'ذكـر';
 const femaleIcon = FontAwesomeIcons.venus;

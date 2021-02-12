@@ -15,17 +15,23 @@ class IconContent extends StatelessWidget {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
-          icon,
-          size: 80.0,
+        Expanded(
+          child: LayoutBuilder(builder: (context, constraint) {
+            return Icon(
+              icon,
+              size: constraint.biggest.height,
+            );
+          }),
         ),
         SizedBox(
-          height: 10.0,
+          height: 5.0,
         ),
-        Text(
-          textIcon,
-          style: textIconStyle,
-        )
+        Expanded(
+          child: Text(
+            textIcon,
+            style: textIconStyle,
+          ),
+        ),
       ],
     );
   }
