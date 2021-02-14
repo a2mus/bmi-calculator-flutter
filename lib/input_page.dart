@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'icon_content.dart';
 import 'my_card.dart';
 
-const buttomContainerHeight = 80.0;
+const bottomContainerHeight = 80.0;
 const bottomContainerColor = Color(0xFFEB1555);
 const activeCardColor = Color(0xFF1D1E33);
 const inactiveCardColor = Color(0xFF111238);
@@ -13,6 +13,8 @@ const maleIcon = FontAwesomeIcons.mars;
 const textMale = 'ذكـر';
 const femaleIcon = FontAwesomeIcons.venus;
 const textFemale = 'أنثى';
+
+enum Gender { male, female }
 
 class InputPage extends StatefulWidget {
   @override
@@ -23,8 +25,8 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColor = inactiveCardColor;
   Color maleCardColor = inactiveCardColor;
 
-  void updateColor(int gender) {
-    if (gender == 2) {
+  void updateColor(Gender selectedGender) {
+    if (selectedGender == Gender.female) {
       if (femaleCardColor == inactiveCardColor) {
         femaleCardColor = activeCardColor;
         maleCardColor = inactiveCardColor;
@@ -33,7 +35,7 @@ class _InputPageState extends State<InputPage> {
       }
     }
 
-    if (gender == 1) {
+    if (selectedGender == Gender.male) {
       if (maleCardColor == inactiveCardColor) {
         maleCardColor = activeCardColor;
         femaleCardColor = inactiveCardColor;
@@ -60,7 +62,7 @@ class _InputPageState extends State<InputPage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          updateColor(2);
+                          updateColor(Gender.female);
                         });
                       },
                       child: MyCard(
@@ -76,7 +78,7 @@ class _InputPageState extends State<InputPage> {
                     child: GestureDetector(
                       onTap: () {
                         setState(() {
-                          updateColor(1);
+                          updateColor(Gender.male);
                         });
                       },
                       child: MyCard(
@@ -116,7 +118,7 @@ class _InputPageState extends State<InputPage> {
               margin: EdgeInsets.only(top: 15.0),
               color: bottomContainerColor,
               width: double.infinity,
-              height: buttomContainerHeight,
+              height: bottomContainerHeight,
             ),
           ],
         ),
