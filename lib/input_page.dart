@@ -23,29 +23,6 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
-  // Color femaleCardColor = inactiveCardColor;
-  // Color maleCardColor = inactiveCardColor;
-  //
-  // void updateColor(Gender selectedGender) {
-  //   if (selectedGender == Gender.female) {
-  //     if (femaleCardColor == inactiveCardColor) {
-  //       femaleCardColor = activeCardColor;
-  //       maleCardColor = inactiveCardColor;
-  //     } else {
-  //       femaleCardColor = inactiveCardColor;
-  //     }
-  //   }
-  //
-  //   if (selectedGender == Gender.male) {
-  //     if (maleCardColor == inactiveCardColor) {
-  //       maleCardColor = activeCardColor;
-  //       femaleCardColor = inactiveCardColor;
-  //     } else {
-  //       maleCardColor = inactiveCardColor;
-  //     }
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,38 +37,34 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: [
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
+                    child: MyCard(
+                      tapFunction: () {
                         setState(() {
                           selectedGender = Gender.female;
                         });
                       },
-                      child: MyCard(
-                        colour: selectedGender == Gender.female
-                            ? activeCardColor
-                            : inactiveCardColor,
-                        childCard: IconContent(
-                          icon: femaleIcon,
-                          textIcon: textFemale,
-                        ),
+                      colour: selectedGender == Gender.female
+                          ? activeCardColor
+                          : inactiveCardColor,
+                      childCard: IconContent(
+                        icon: femaleIcon,
+                        textIcon: textFemale,
                       ),
                     ),
                   ),
                   Expanded(
-                    child: GestureDetector(
-                      onTap: () {
+                    child: MyCard(
+                      tapFunction: () {
                         setState(() {
                           selectedGender = Gender.male;
                         });
                       },
-                      child: MyCard(
-                        colour: selectedGender == Gender.male
-                            ? activeCardColor
-                            : inactiveCardColor,
-                        childCard: IconContent(
-                          icon: maleIcon,
-                          textIcon: textMale,
-                        ),
+                      colour: selectedGender == Gender.male
+                          ? activeCardColor
+                          : inactiveCardColor,
+                      childCard: IconContent(
+                        icon: maleIcon,
+                        textIcon: textMale,
                       ),
                     ),
                   ),
