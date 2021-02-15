@@ -12,9 +12,12 @@ const kTextMale = 'ذكـر';
 const kFemaleIcon = FontAwesomeIcons.venus;
 const kTextFemale = 'أنثى';
 const kHeightLabel = 'الطول';
-const kNumberTextStyle =
-    TextStyle(color: Colors.white, fontSize: 50.0, fontWeight: FontWeight.bold);
+const kNumberTextStyle = TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
 
 const kCardFontColor = Color(0xFF8D8E98);
 const kTextIconStyle = TextStyle(
     color: kCardFontColor, fontSize: 30.0, fontWeight: FontWeight.bold);
+const kTextUnitStyle = TextStyle(
+  color: kCardFontColor,
+  fontSize: 25.0,
+);

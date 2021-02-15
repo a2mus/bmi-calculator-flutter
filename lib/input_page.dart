@@ -12,7 +12,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
-  int heightValue = 170;
+  int heightValue = 180;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,6 +22,8 @@ class _InputPageState extends State<InputPage> {
       ),
       body: Container(
         child: Column(
+          //crossAxisAlignment: CrossAxisAlignment.stretch,
+
           children: [
             Expanded(
               child: Row(
@@ -65,7 +67,6 @@ class _InputPageState extends State<InputPage> {
               child: MyCard(
                 colour: kActiveCardColor,
                 childCard: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -73,12 +74,38 @@ class _InputPageState extends State<InputPage> {
                       textAlign: TextAlign.center,
                       style: kTextIconStyle,
                     ),
-                    Text(
-                      heightValue.toString(),
-                      textAlign: TextAlign.center,
-                      style: kNumberTextStyle,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      //for the unit of mmesurement
+                      crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textDirection: TextDirection.rtl,
+
+                      children: [
+                        SizedBox(
+                          width: 40,
+                        ),
+                        Text(
+                          heightValue.toString(),
+                          style: kNumberTextStyle,
+                        ),
+                        Text(
+                          'سم',
+                          style: kTextUnitStyle,
+                        )
+                      ],
                     ),
-                    Slider(value: 0.5, onChanged: null)
+                    Slider(
+                      min: 100.0,
+                      max: 250.0,
+                      value: heightValue.toDouble(),
+                      onChanged: (double newValue) {
+                        setState(() {
+                          heightValue = newValue.round();
+                        });
+                      },
+                      activeColor: Colors.red,
+                      inactiveColor: Colors.white,
+                    )
                   ],
                 ),
               ),
