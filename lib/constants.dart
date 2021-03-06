@@ -26,3 +26,6 @@ const kThumbColor = Color(0xFFEB1555);
 const kOverlayColor = Color(0x29EB1555);
 const kActiveTrackColor = Colors.white;
 const kInactiveTrackColor = Color(0xFF8D8E98);
+
+const kWeightLabel = 'الوزن';
+const kFillColorRoundIconButton = Color(0xFF4C4F5E);

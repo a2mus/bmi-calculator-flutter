@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
 import 'icon_content.dart';
 import 'my_card.dart';
@@ -13,6 +14,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int heightValue = 180;
+  int weightValue = 60;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,7 +78,7 @@ class _InputPageState extends State<InputPage> {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      //for the unit of mmesurement
+                      //for the unit of measurements
                       crossAxisAlignment: CrossAxisAlignment.baseline,
                       textBaseline: TextBaseline.alphabetic,
                       textDirection: TextDirection.rtl,
@@ -95,27 +97,29 @@ class _InputPageState extends State<InputPage> {
                         )
                       ],
                     ),
-                    SliderTheme(
-                      data: SliderTheme.of(context).copyWith(
-                        thumbColor: kThumbColor,
-                        overlayColor: kOverlayColor,
-                        activeTrackColor: kActiveTrackColor,
-                        inactiveTrackColor: kInactiveTrackColor,
-                        thumbShape: RoundSliderThumbShape(
-                          enabledThumbRadius: 15.0,
+                    Expanded(
+                      child: SliderTheme(
+                        data: SliderTheme.of(context).copyWith(
+                          thumbColor: kThumbColor,
+                          overlayColor: kOverlayColor,
+                          activeTrackColor: kActiveTrackColor,
+                          inactiveTrackColor: kInactiveTrackColor,
+                          thumbShape: RoundSliderThumbShape(
+                            enabledThumbRadius: 15.0,
+                          ),
+                          overlayShape:
+                              RoundSliderOverlayShape(overlayRadius: 30.0),
                         ),
-                        overlayShape:
-                            RoundSliderOverlayShape(overlayRadius: 30.0),
-                      ),
-                      child: Slider(
-                        min: 100.0,
-                        max: 250.0,
-                        value: heightValue.toDouble(),
-                        onChanged: (double newValue) {
-                          setState(() {
-                            heightValue = newValue.round();
-                          });
-                        },
+                        child: Slider(
+                          min: 100.0,
+                          max: 250.0,
+                          value: heightValue.toDouble(),
+                          onChanged: (double newValue) {
+                            setState(() {
+                              heightValue = newValue.round();
+                            });
+                          },
+                        ),
                       ),
                     )
                   ],
@@ -128,6 +132,27 @@ class _InputPageState extends State<InputPage> {
                   Expanded(
                     child: MyCard(
                       colour: kActiveCardColor,
+                      childCard: Column(
+                        children: [
+                          Text(
+                            kWeightLabel,
+                            style: kTextIconStyle,
+                          ),
+                          Text(
+                            weightValue.toString(),
+                            style: kNumberTextStyle,
+                          ),
+                          Expanded(
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                RoundIconButton(),
+                                RoundIconButton(),
+                              ],
+                            ),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
@@ -147,6 +172,19 @@ class _InputPageState extends State<InputPage> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: () {},
+      shape: CircleBorder(),
+      child: Icon(FontAwesomeIcons.minus),
+      constraints: BoxConstraints.tightFor(width: 50.0, height: 50.0),
+      fillColor: kFillColorRoundIconButton,
     );
   }
 }
