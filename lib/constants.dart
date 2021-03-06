@@ -21,3 +21,8 @@ const kTextUnitStyle = TextStyle(
   color: kCardFontColor,
   fontSize: 25.0,
 );
+//Slider constants
+const kThumbColor = Color(0xFFEB1555);
+const kOverlayColor = Color(0x29EB1555);
+const kActiveTrackColor = Colors.white;
+const kInactiveTrackColor = Color(0xFF8D8E98);

@@ -78,6 +78,7 @@ class _InputPageState extends State<InputPage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       //for the unit of mmesurement
                       crossAxisAlignment: CrossAxisAlignment.baseline,
+                      textBaseline: TextBaseline.alphabetic,
                       textDirection: TextDirection.rtl,
 
                       children: [
@@ -94,17 +95,28 @@ class _InputPageState extends State<InputPage> {
                         )
                       ],
                     ),
-                    Slider(
-                      min: 100.0,
-                      max: 250.0,
-                      value: heightValue.toDouble(),
-                      onChanged: (double newValue) {
-                        setState(() {
-                          heightValue = newValue.round();
-                        });
-                      },
-                      activeColor: Colors.red,
-                      inactiveColor: Colors.white,
+                    SliderTheme(
+                      data: SliderTheme.of(context).copyWith(
+                        thumbColor: kThumbColor,
+                        overlayColor: kOverlayColor,
+                        activeTrackColor: kActiveTrackColor,
+                        inactiveTrackColor: kInactiveTrackColor,
+                        thumbShape: RoundSliderThumbShape(
+                          enabledThumbRadius: 15.0,
+                        ),
+                        overlayShape:
+                            RoundSliderOverlayShape(overlayRadius: 30.0),
+                      ),
+                      child: Slider(
+                        min: 100.0,
+                        max: 250.0,
+                        value: heightValue.toDouble(),
+                        onChanged: (double newValue) {
+                          setState(() {
+                            heightValue = newValue.round();
+                          });
+                        },
+                      ),
                     )
                   ],
                 ),
